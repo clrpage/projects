@@ -14,7 +14,7 @@
    <string>NotepadXX</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="res.qrc">
+   <iconset>
     <normaloff>:/imgs/notes.png</normaloff>:/imgs/notes.png</iconset>
   </property>
   <property name="styleSheet">
@@ -46,7 +46,7 @@ selection-background-color: rgb(255, 220, 115);</string>
      <x>0</x>
      <y>0</y>
      <width>714</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -91,8 +91,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </widget>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/add-file.png</normaloff>:/imgs/add-file.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/add-file.png</normaloff>:/imgs/resources/add-file.png</iconset>
    </property>
    <property name="text">
     <string>New</string>
@@ -100,8 +100,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/open-folder-with-document.png</normaloff>:/imgs/open-folder-with-document.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/open-folder-with-document.png</normaloff>:/imgs/resources/open-folder-with-document.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -109,8 +109,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/floppy-disk.png</normaloff>:/imgs/floppy-disk.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/floppy-disk.png</normaloff>:/imgs/resources/floppy-disk.png</iconset>
    </property>
    <property name="text">
     <string>Save</string>
@@ -118,8 +118,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionExit">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/logout.png</normaloff>:/imgs/logout.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/logout.png</normaloff>:/imgs/resources/logout.png</iconset>
    </property>
    <property name="text">
     <string>Exit</string>
@@ -127,8 +127,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionCopy">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/copy.png</normaloff>:/imgs/copy.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/copy.png</normaloff>:/imgs/resources/copy.png</iconset>
    </property>
    <property name="text">
     <string>Copy</string>
@@ -136,8 +136,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionPaste">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/paste.png</normaloff>:/imgs/paste.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/paste.png</normaloff>:/imgs/resources/paste.png</iconset>
    </property>
    <property name="text">
     <string>Paste</string>
@@ -145,8 +145,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionCut">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/scissors.png</normaloff>:/imgs/scissors.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/scissors.png</normaloff>:/imgs/resources/scissors.png</iconset>
    </property>
    <property name="text">
     <string>Cut</string>
@@ -154,8 +154,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/undo.png</normaloff>:/imgs/undo.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/undo.png</normaloff>:/imgs/resources/undo.png</iconset>
    </property>
    <property name="text">
     <string>Undo</string>
@@ -163,8 +163,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/redo.png</normaloff>:/imgs/redo.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/redo.png</normaloff>:/imgs/resources/redo.png</iconset>
    </property>
    <property name="text">
     <string>Redo</string>
@@ -172,8 +172,8 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/imgs/printer.png</normaloff>:/imgs/printer.png</iconset>
+    <iconset resource="notepad-xx.qrc">
+     <normaloff>:/imgs/resources/printer.png</normaloff>:/imgs/resources/printer.png</iconset>
    </property>
    <property name="text">
     <string>Print</string>
@@ -181,7 +181,7 @@ selection-background-color: rgb(255, 220, 115);</string>
   </action>
  </widget>
  <resources>
-  <include location="res.qrc"/>
+  <include location="notepad-xx.qrc"/>
  </resources>
  <connections/>
 </ui>
