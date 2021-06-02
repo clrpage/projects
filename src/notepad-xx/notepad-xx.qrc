@@ -1,16 +1,16 @@
 <RCC>
     <qresource prefix="/imgs">
-        <file>floppy-disk.png</file>
-        <file>open-folder-with-document.png</file>
-        <file>undo.png</file>
-        <file>redo.png</file>
-        <file>add-file.png</file>
-        <file>scissors.png</file>
-        <file>paste.png</file>
-        <file>copy.png</file>
-        <file>logout.png</file>
-        <file>notes.png</file>
-        <file>printer.png</file>
+        <file>resources/floppy-disk.png</file>
+        <file>resources/open-folder-with-document.png</file>
+        <file>resources/undo.png</file>
+        <file>resources/redo.png</file>
+        <file>resources/add-file.png</file>
+        <file>resources/scissors.png</file>
+        <file>resources/paste.png</file>
+        <file>resources/copy.png</file>
+        <file>resources/logout.png</file>
+        <file>resources/notes.png</file>
+        <file>resources/printer.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
