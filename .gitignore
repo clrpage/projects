@@ -30,3 +30,4 @@
 *.exe
 *.out
 *.app
+/src/calc/build-Calculator-Desktop_Qt_5_12_11_MinGW_64_bit-Debug
