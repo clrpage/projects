@@ -36,6 +36,9 @@ private:
         DecimalPressed,
         EqualPressed,
         ErrorOccured,
+        Success,
+        Reset,
+        ResetLast,
 
     };
 
@@ -43,7 +46,8 @@ private:
     State CurrentState = Any;
     Trigger CurrentTrigger = NumberPressed;
 
-    bool CheckLength();
+    int CheckLength();
+    bool CheckLengthValidity();
 
     void ChangeState()
     {
@@ -58,6 +62,9 @@ private:
                     case DecimalPressed:
                         CurrentState = Number;
                         break;
+                    case Reset:
+                        CurrentState = Any;
+                        break;
                     default:
                         break;
                 };
@@ -67,6 +74,10 @@ private:
                 {
                     case MathPressed:
                         CurrentState = Math;
+                        break;
+                    case ResetLast:
+                    case Reset:
+                        CurrentState = Any;
                         break;
                     default:
                         break;
@@ -80,6 +91,13 @@ private:
                         break;
                     case DecimalPressed:
                         CurrentState = ReadyNumber;
+                        break;
+                    case EqualPressed:
+                        CurrentState = Computing;
+                        break;
+                    case Reset:
+                        CurrentState = Any;
+                        break;
                     default:
                         break;
                 };
@@ -90,8 +108,13 @@ private:
                     case DecimalPressed:
                         CurrentState = ReadyNumber;
                         break;
+                    case MathPressed:
                     case EqualPressed:
                         CurrentState = Computing;
+                        break;
+                    case Reset:
+                        CurrentState = Any;
+                        break;
                     default:
                         break;
                 };
@@ -99,8 +122,12 @@ private:
            case ReadyNumber:
                 switch(CurrentTrigger)
                 {
+                    case MathPressed:
                     case EqualPressed:
                         CurrentState = Computing;
+                        break;
+                    case Reset:
+                        CurrentState = Any;
                         break;
                     default:
                         break;
@@ -112,8 +139,11 @@ private:
                     case ErrorOccured:
                         CurrentState = Error;
                         break;
+                    case Reset:
+                        CurrentState = Any;
+                        break;
                     default:
-                        CurrentState = Math;
+                        CurrentState = Any;
                         break;
                 }
                 break;
@@ -125,6 +155,9 @@ private:
                         break;
                     case DecimalPressed:
                         CurrentState = Number;
+                        break;
+                    case Reset:
+                        CurrentState = Any;
                         break;
                     default:
                         break;
@@ -139,6 +172,7 @@ private slots:
     void DecPressed();
     void ResetPressed();
     void MathButtonPressed();
-//    void EqualButtonPressed();
+    void EqualButtonPressed();
+    void ResetLastPressed();
 };
 #endif // CALCULATOR_H
