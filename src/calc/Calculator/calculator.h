@@ -46,7 +46,7 @@ private:
     State CurrentState = Any;
     Trigger CurrentTrigger = NumberPressed;
 
-    int CheckLength();
+    int CheckLength(QString filter);
     bool CheckLengthValidity();
 
     void ChangeState()
@@ -62,6 +62,7 @@ private:
                     case DecimalPressed:
                         CurrentState = Number;
                         break;
+                    case ResetLast:
                     case Reset:
                         CurrentState = Any;
                         break;
@@ -95,6 +96,9 @@ private:
                     case EqualPressed:
                         CurrentState = Computing;
                         break;
+                    case ResetLast:
+                        CurrentState = Math;
+                        break;
                     case Reset:
                         CurrentState = Any;
                         break;
@@ -112,6 +116,9 @@ private:
                     case EqualPressed:
                         CurrentState = Computing;
                         break;
+                    case ResetLast:
+                        CurrentState = Math;
+                        break;
                     case Reset:
                         CurrentState = Any;
                         break;
@@ -126,6 +133,9 @@ private:
                     case EqualPressed:
                         CurrentState = Computing;
                         break;
+                    case ResetLast:
+                        CurrentState = Math;
+                        break;
                     case Reset:
                         CurrentState = Any;
                         break;
@@ -139,6 +149,7 @@ private:
                     case ErrorOccured:
                         CurrentState = Error;
                         break;
+                    case ResetLast:
                     case Reset:
                         CurrentState = Any;
                         break;
@@ -156,6 +167,7 @@ private:
                     case DecimalPressed:
                         CurrentState = Number;
                         break;
+                    case ResetLast:
                     case Reset:
                         CurrentState = Any;
                         break;
@@ -174,5 +186,6 @@ private slots:
     void MathButtonPressed();
     void EqualButtonPressed();
     void ResetLastPressed();
+    void DeletePressed();
 };
 #endif // CALCULATOR_H

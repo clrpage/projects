@@ -51,14 +51,14 @@ Calculator::~Calculator()
     delete ui;
 }
 
-int Calculator::CheckLength(){
+int Calculator::CheckLength(QString filter){
     QString displayVal = ui->line_bottom->text();
-    QString controlValue = displayVal.remove(QRegExp("[\\.]+"));
+    QString controlValue = displayVal.remove(QRegExp(filter));
     return controlValue.size();
 }
 
 bool Calculator::CheckLengthValidity(){
-    int displayLength = Calculator::CheckLength();
+    int displayLength = Calculator::CheckLength("[\\.]+");
     if(displayLength < 16){
         return true;
     }
@@ -150,9 +150,9 @@ void Calculator::ResetPressed(){
 }
 
 void Calculator::MathButtonPressed(){
-    //if(Calculator::CurrentState != Any && Calculator::CurrentState != Number && Calculator::CurrentState != Math){
-    //    return;
-    //}
+    if(Calculator::CurrentState == Error || Calculator::CurrentState == Computing){
+        return;
+    }
     if(Calculator::CurrentState == ReadyAny || Calculator::CurrentState == ReadyNumber){
         Calculator::EqualButtonPressed();
     }
@@ -231,5 +231,26 @@ void Calculator::EqualButtonPressed(){
 }
 
 void Calculator::ResetLastPressed(){
+    switch(Calculator::CurrentState){
+        case Any:
+        case Number:
+        case Error:
+            Calculator::ResetPressed();
+            Calculator::CurrentTrigger = ResetLast;
+            Calculator::ChangeState();
+            break;
+        case Math:
+        case ReadyAny:
+        case ReadyNumber:
+            ui->line_bottom->setText("0");
+            Calculator::CurrentTrigger = ResetLast;
+            Calculator::ChangeState();
+            break;
+        default:break;
+    }
+    ui->statusBar->showMessage(QString::number(Calculator::CurrentState));
+}
+
+void Calculator::DeletePressed(){
 
 }
