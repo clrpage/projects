@@ -187,5 +187,6 @@ private slots:
     void EqualButtonPressed();
     void ResetLastPressed();
     void DeletePressed();
+    void ChangeSignPressed();
 };
 #endif // CALCULATOR_H

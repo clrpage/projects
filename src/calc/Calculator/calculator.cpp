@@ -13,6 +13,7 @@ double firstValue = 0.0;
 double secondValue = 0.0;
 double solution = 0.0;
 mathOperation CurrentOperator = Add;
+//bool valuePositive = true;
 bool solutionDisplayed = false;
 
 Calculator::Calculator(QWidget *parent)
@@ -42,6 +43,10 @@ Calculator::Calculator(QWidget *parent)
             SLOT(EqualButtonPressed()));
     connect(ui->btn_reset_last, SIGNAL(released()), this,
             SLOT(ResetLastPressed()));
+    connect(ui->btn_del, SIGNAL(released()), this,
+            SLOT(DeletePressed()));
+    connect(ui->btn_change_sign, SIGNAL(released()), this,
+            SLOT(ChangeSignPressed()));
 }
 
 
@@ -58,7 +63,7 @@ int Calculator::CheckLength(QString filter){
 }
 
 bool Calculator::CheckLengthValidity(){
-    int displayLength = Calculator::CheckLength("[\\.]+");
+    int displayLength = Calculator::CheckLength("[\\.-]+");
     if(displayLength < 16){
         return true;
     }
@@ -220,7 +225,13 @@ void Calculator::EqualButtonPressed(){
 
     Calculator::ChangeState();
     ui->statusBar->showMessage(QString::number(Calculator::CurrentState));
-    ui->line_top->setText(QString::number(firstValue,'g',16)+operatorString+QString::number(secondValue,'g',16)+"=");
+    QString firstBracket = "";
+    QString secondBracket = "";
+    if(secondValue<0){
+        firstBracket = "(";
+        secondBracket = ")";
+    }
+    ui->line_top->setText(QString::number(firstValue,'g',16)+operatorString+firstBracket+QString::number(secondValue,'g',16)+secondBracket+"=");
     if(Calculator::CurrentState == Error){
         ui->line_bottom->setText("Error");
         return;
@@ -252,5 +263,31 @@ void Calculator::ResetLastPressed(){
 }
 
 void Calculator::DeletePressed(){
+    if( Calculator::CurrentState ==Error || Calculator::CurrentState == Computing){
+        return;
+    }
+    int currentlength=Calculator::CheckLength("[\\-]+");
+    QString displayVal = ui->line_bottom->text();
+    if(currentlength >1){
+        displayVal.resize(displayVal.size() - 1);
+        ui->line_bottom->setText(displayVal);
+    } else{
+        ui->line_bottom->setText("0");
+    }
+}
 
+void Calculator::ChangeSignPressed(){
+    if( Calculator::CurrentState ==Error || Calculator::CurrentState == Computing){
+        return;
+    }
+    QString displayVal = ui->line_bottom->text();
+    if(displayVal == "0"){
+        return;
+    }
+    if( displayVal.contains("-")){
+        displayVal.remove(0, 1);
+    } else{
+        displayVal = "-"+displayVal;
+    }
+    ui->line_bottom->setText(displayVal);
 }
